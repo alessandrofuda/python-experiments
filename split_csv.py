@@ -14,9 +14,9 @@ def fetch_split_path(original_filename):
     return base_folder + '/split/' + name
 
 
-def split_csv(filename, row_count=40):
+def split_csv(filename, chunk_rows_count=40):
     chunk = []
-    row_number = 0
+    current_row_number = 0
     file_number = 1
     header = ''
     original_filename, extension = filename.split('.')
@@ -30,12 +30,12 @@ def split_csv(filename, row_count=40):
 
             # populate data/chunk
             chunk.append(row)
-            row_number += 1
-            if row_number >= row_count:
+            current_row_number += 1
+            if current_row_number >= chunk_rows_count:
                 write_chunk_to_file(f'{fetch_split_path(original_filename)}-{file_number}.{extension}', chunk, header)
                 chunk = []
                 file_number += 1
-                row_number = 0
+                current_row_number = 0
 
         if chunk:
             write_chunk_to_file(f'{fetch_split_path(original_filename)}-{file_number}.{extension}', chunk, header)
