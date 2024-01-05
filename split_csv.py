@@ -1,4 +1,5 @@
 import csv
+import os
 
 
 def write_chunk_to_file(filename, data_chunk, data_header=None):
@@ -14,12 +15,24 @@ def fetch_split_path(original_filename):
     return base_folder + '/split/' + name
 
 
+def clear_split_folder(split_path):
+    # print(split_path)
+    directory_path = split_path.rsplit('/', 1)[0] + '/'
+    # print(directory_path)
+    # exit()
+
+    for filename in os.listdir(directory_path):
+        if os.path.isfile(os.path.join(directory_path, filename)):
+            os.remove(os.path.join(directory_path, filename))
+
+
 def split_csv(filename, chunk_rows_count=40):
     chunk = []
     current_row_number = 0
     file_number = 1
     header = ''
     original_filename, extension = filename.split('.')
+    clear_split_folder(fetch_split_path(original_filename))
 
     with open(filename, 'r') as file:
         reader = csv.reader(file)
@@ -41,4 +54,4 @@ def split_csv(filename, chunk_rows_count=40):
             write_chunk_to_file(f'{fetch_split_path(original_filename)}-{file_number}.{extension}', chunk, header)
 
 
-split_csv('data/huge.csv')
+split_csv('data/huge.csv', 35)
