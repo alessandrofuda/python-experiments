@@ -7,11 +7,11 @@ df.head()
 # x = df.iloc[:,:]
 # x = df.iloc[:,:-1].values  # array return
 # x = df.iloc[:,-1].values
-x = df.iloc[:,:-1].values  # ':-1' IMPORTANT!
+x = df.iloc[:, :-1].values  # ':-1' IMPORTANT!
 # print(x)
 # print(x[0:5])
 
-y = df.iloc[:,-1].values   # '-1' IMPORTANT!
+y = df.iloc[:, -1].values   # '-1' IMPORTANT!
 
 # visual representation of linear regression
 # plt.scatter(x, y)
@@ -19,7 +19,7 @@ y = df.iloc[:,-1].values   # '-1' IMPORTANT!
 
 
 # SPLIT all DATA into: Training and Testing data
-# import only a function directly from a submodule of sklearn module (alternative syntax) - (only for memory optimization)
+# import only a function directly from a submodule of sklearn module (alternative syntax, only for memory optimization)
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 # x_train.shape
