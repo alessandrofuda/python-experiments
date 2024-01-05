@@ -14,16 +14,14 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 
 # defining dataframe
-df = pd.read_csv('salaries.csv')
+df = pd.read_csv('data/salaries.csv')
 df.head()
 # x = df.iloc[:,:]
 # x = df.iloc[:,:-1].values  # array return
 # x = df.iloc[:,-1].values
 x = df.iloc[:, :-1].values  # ':-1' IMPORTANT!
-xx = df.iloc[:, 0].values  # ':-1' IMPORTANT!
-print(x)
-print(xx)
-exit()
+# print(x)
+# exit()
 # print(x[0:5])
 
 y = df.iloc[:, -1].values   # '-1' IMPORTANT!
