@@ -1,31 +1,44 @@
 import csv
-chunk = []
-row_count = 0
-file_number = 1
-header = ''
 
-with open('data/huge.csv', 'r') as file:
-    reader = csv.reader(file)
-    for row in reader:
-        if header == '':
-            header = row
-            continue
 
-        # populate data/chunk
-        chunk.append(row)
-        row_count += 1
-        if row_count >= 40:
-            # write chunk to file
-            with open(f'data/split/huge-{file_number}.csv', 'w') as new_file:
-                writer = csv.writer(new_file)
-                writer.writerow(header)
-                writer.writerows(chunk)
-            chunk = []
-            file_number += 1
-            row_count = 0
+def write_chunk_to_file(filename, data_chunk, data_header=None):
+    with open(filename, 'w') as new_file:
+        writer = csv.writer(new_file)
+        if data_header:
+            writer.writerow(data_header)
+        writer.writerows(data_chunk)
 
-    if chunk:
-        with open(f'data/split/huge-{file_number}.csv', 'w') as new_file:
-            writer = csv.writer(new_file)
-            writer.writerow(header)
-            writer.writerows(chunk)
+
+def fetch_split_path(original_filename):
+    base_folder, name = original_filename.split('/')
+    return base_folder + '/split/' + name
+
+
+def split_csv(filename, row_count=40):
+    chunk = []
+    row_number = 0
+    file_number = 1
+    header = ''
+    original_filename, extension = filename.split('.')
+
+    with open(filename, 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if header == '':
+                header = row
+                continue  # skip to next loop iteration
+
+            # populate data/chunk
+            chunk.append(row)
+            row_number += 1
+            if row_number >= row_count:
+                write_chunk_to_file(f'{fetch_split_path(original_filename)}-{file_number}.{extension}', chunk, header)
+                chunk = []
+                file_number += 1
+                row_number = 0
+
+        if chunk:
+            write_chunk_to_file(f'{fetch_split_path(original_filename)}-{file_number}.{extension}', chunk, header)
+
+
+split_csv('data/huge.csv')
