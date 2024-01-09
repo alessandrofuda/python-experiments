@@ -32,6 +32,7 @@ def split_csv(filename, chunk_rows_count=40):
     file_number = 1
     header = ''
     original_filename, extension = filename.split('.')
+
     clear_split_folder(fetch_split_path(original_filename))
 
     with open(filename, 'r') as file:
