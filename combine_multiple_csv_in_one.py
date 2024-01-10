@@ -14,4 +14,12 @@ for n in range(1, 6):
             ])
 
 
-            # ....... todo .................   ..wip.. see  https://www.youtube.com/watch?v=hE3O5hdE3Fs
+with open('data/full/huge-full.csv', 'w') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow([
+        'new_aaaaaa',
+        'new_bbbbbb',
+        'new_cccccc',
+        'new_dddddd',
+    ])
+    writer.writerows(new_csv_data)
