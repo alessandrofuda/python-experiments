@@ -13,13 +13,14 @@ from sklearn.model_selection import train_test_split  # import function directly
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 
-# defining dataframe
+# defining/modelling dataframe
 df = pd.read_csv('data/salaries.csv')
 df.head()
-# x = df.iloc[:,:]
+# x = df.iloc[:,:]  # rows,cols --> result contains also 'index' col
 # x = df.iloc[:,:-1].values  # array return
 # x = df.iloc[:,-1].values
 x = df.iloc[:, :-1].values  # ':-1' IMPORTANT!
+# x = df.drop(['salary'], axis=1)  # drop column from dataframe, axis=1 is column, axis=0 is index column
 # print(x)
 # exit()
 # print(x[0:5])
@@ -49,6 +50,7 @@ print('--------------')
 print('x_test: ')
 print(x_test)
 y_pred = model.predict(x_test)
+
 print('y_pred (predicted): ', end="")
 print(y_pred)
 
