@@ -22,6 +22,8 @@ print(df.sample(4))
 print(df.nlargest(5, 'dddddddd'))
 print(df.nsmallest(5, 'dddddddd'))
 
-# group by column and count how many values per group
+# group by column dddddddd and count how many values per group
 print(df.dddddddd.value_counts())
-
+print(df.dddddddd.value_counts(normalize=True))  # same but in %
+print(df[['dddddddd']].mean())
+print(df.groupby('col1')[['col2']].mean())
