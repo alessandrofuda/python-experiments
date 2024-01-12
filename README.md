@@ -4,8 +4,8 @@ Likelihood = probability
 
 ML Process:
 1. data collection (pd.read_csv('...csv'))
-2. data exploration (df.shape, df.info(), df.describe() ...)
-3. data preparation (normalize data, split train/test data..)
+2. data exploration (df.shape, df.info(), df.describe() plot charts...)
+3. data preparation (check missing data, normalize data, split train/test data..)
 
 These 3 steps get 80% of the time
 
