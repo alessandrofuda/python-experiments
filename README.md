@@ -2,7 +2,10 @@
 
 Likelihood = probability
 
+supervised learning = we have already data/values (input/output) to train the model with `train_test_split` method
+
 ML Process:
+
 1. data collection (pd.read_csv('...csv'))
 2. data exploration (df.shape, df.info(), df.describe() .plot() charts...)
 3. data preparation 
@@ -14,7 +17,7 @@ ML Process:
 
      Feature = Input = Independent Variables = x
      
-     Output = Dependent Variable (Only one) = y
+     Target = Output = Dependent Variable (Only one) = y  ==> TO PREDICT by Model
 
 These 3 steps get 80% of the time
 
@@ -27,6 +30,7 @@ These 3 steps get 80% of the time
 These 2 steps iterate to find model that have the best accuracy rate
 
 6. actionable insight
+
 
 
 <br><br><br><br>
