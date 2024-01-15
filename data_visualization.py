@@ -1,6 +1,6 @@
 import pandas as pd
 
-vehicles = pd.read_csv('~/Code/python_learn/lnkdn/exerc_files/03/vehicles.csv')
+vehicles = pd.read_csv('/lnkdn/exerc_files/03/vehicles.csv')
 print(vehicles.info())
 
 # citympg --> miles per gallon
