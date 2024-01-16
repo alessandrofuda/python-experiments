@@ -1,8 +1,8 @@
 ### Python3 and ML experiments
 
 Likelihood = probability
-
 supervised learning = we have already data/values (input/output) to train the model with `train_test_split` method
+samples, sampling = campioni, campionamento
 
 ML Process:
 
@@ -38,3 +38,5 @@ These 2 steps iterate to find model that have the best accuracy rate
 
 Other notes:
 - to launch jupyter `jupyter notebook`
+
+
