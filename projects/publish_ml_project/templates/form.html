@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Webpage</title>
+</head>
+<body>
+
+<h1>Salary prediction</h1>
+<h4>Model trained by `salaries-2023.csv` data</h4>
+<form method="POST" action="/calculate/salary">
+    <label for="experience">Years of experience</label><br/>
+    <input type="text" id="experience" name="experience" min="1" max="10" step="1" value="{{ experience }}">
+
+    <br/><br/>
+
+    <label for="level">Level</label><br/>
+    <input type="text" id="level" name="level" min="1" max="3" value="{{ level }}">
+    <br/><br/>
+
+    <input type="submit" value="Submit">
+</form>
+
+{% if salary %}
+
+<h1>Predicted Salary</h1>
+<p>{{ salary }}</p>
+
+{% endif %}
+
+</body>
+</html>
