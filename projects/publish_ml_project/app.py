@@ -9,7 +9,7 @@ app = Flask(__name__)
 def homepage():
     return ("<h3>Python Machine Learning experiments</h3>"
             "<h4>Welcome to the Salary Prediction Model</h4>"
-            "<b>Api</b>: POST request to /api/calculate/salary with 'experience' and 'level' params (postman)<br>"
+            "<b>Api</b>: POST request to '/api/calculate/salary' with 'experience' and 'level' json params (postman)<br>"
             "<b>Web</b>: <a href='/calculate/salary'>Predict salary</a>")
 
 
