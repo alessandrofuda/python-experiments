@@ -40,3 +40,40 @@ Other notes:
 - to launch jupyter `jupyter notebook`
 
 
+
+
+## Deploy without container (??)
+GUNICORN is a substitute of Flask ready to PROD env
+
+`$ pip install gunicorn==20.1.0`  on server
+
+
+```
+$ gunicorn -w 2 -b 0.0.0.0:5000 app:app
+
+[INFO] Starting gunicorn 20.1.0
+[INFO] Listening at: http://0.0.0.0:5000 (1)
+[INFO] Using worker: sync
+[INFO] Booting worker with pid: 3
+[INFO] Booting worker with pid: 4
+```
+
+
+
+
+## DEPLOY in CONTAINER
+https://blog.back4app.com/how-to-build-and-deploy-a-python-application/#Python_Deployment_Options 
+
+--> **Dockerize App**
+
+Create image:
+
+`docker build -t flask-todo:1.0 .`
+
+`docker images` (--> to see generated image)
+
+Run image on port 5000, in prod can be 80/443:
+
+`docker run -it -p 5000:5000 flask-todo:1.0`
+(adding `-d` to detach mode)
+
