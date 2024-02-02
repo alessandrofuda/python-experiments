@@ -77,3 +77,4 @@ Run image on port 5000, in prod can be 80/443:
 `docker run -it -p 5000:5000 flask-todo:1.0`
 (adding `-d` to detach mode)
 
+`pip3 freeze > requirements.txt`
