@@ -1,13 +1,18 @@
 # syntax=docker/dockerfile:1.4
 # FROM --platform=$BUILDPLATFORM python:3.10-alpine
-FROM python:3.10-alpine
+FROM python:3.8
 
 WORKDIR /app
 
 # set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-# ENV SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True
+# ENV PYTHONDONTWRITEBYTECODE 1
+# ENV PYTHONUNBUFFERED 1
+
+# RUN apk add build-base \
+RUN pip install --upgrade pip
+
+# !! IMP !!
+RUN pip install -U scikit-learn
 
 # install the requirements
 COPY requirements.txt /app

@@ -5,7 +5,7 @@ from projects.publish_ml_project.model.model import predict_salary
 
 # salary = predict_salary(8, 3)
 # salary = predict_salary(level=3, experience=8)
-salary = predict_salary(experience=8, level=3)
+salary = "9999"  # predict_salary(experience=8, level=3)
 
 print(salary)
 

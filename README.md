@@ -68,13 +68,16 @@ https://blog.back4app.com/how-to-build-and-deploy-a-python-application/#Python_D
 
 Create image:
 
-`docker build -t flask-todo:1.0 .`
+`docker build -t test-python-app:1.0 .`
 
 `docker images` (--> to see generated image)
 
 Run image on port 5000, in prod can be 80/443:
 
-`docker run -it -p 5000:5000 flask-todo:1.0`
+```
+docker run -it -v .:/app -p 5000:5000 --rm --name "test-python-app" test-python-app:1.0
+```
+
 (adding `-d` to detach mode)
 
 `pip3 freeze > requirements.txt`
