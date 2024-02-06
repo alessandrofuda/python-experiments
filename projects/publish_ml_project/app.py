@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from model.model import predict_salary
-from waitress import serve
+# from waitress import serve
 
 app = Flask(__name__)
 
@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     return ("<h3>Python Machine Learning experiments</h3>"
-            "<h4>Welcome to the Salary Prediction Model</h4>"
+            "<h4>Salary Prediction Model example (pre-trained model via scikit-learn)</h4>"
             "<b>Api</b>: POST request to '/api/calculate/salary' with 'experience' and 'level' json params (postman)<br>"
             "<b>Web</b>: <a href='/calculate/salary'>Predict salary</a>")
 
@@ -36,5 +36,5 @@ def salary_calculation():
     return render_template('form.html', salary=salary, experience=experience, level=level)
 
 
-if __name__ == '__main__':
-    serve(app, host="0.0.0.0", port=8080)
+# if __name__ == '__main__':
+#     serve(app, host="0.0.0.0", port=8080)

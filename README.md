@@ -42,7 +42,7 @@ Other notes:
 
 
 
-## Deploy without container (??)
+## Deploy without container
 GUNICORN is a substitute of Flask ready to PROD env
 
 `$ pip install gunicorn==20.1.0`  on server
@@ -58,26 +58,63 @@ $ gunicorn -w 2 -b 0.0.0.0:5000 app:app
 [INFO] Booting worker with pid: 4
 ```
 
-
-
-
 ## DEPLOY in CONTAINER
-https://blog.back4app.com/how-to-build-and-deploy-a-python-application/#Python_Deployment_Options 
 
---> **Dockerize App**
-
-Create image:
-
-`docker build -t test-python-app:1.0 .`
-
-`docker images` (--> to see generated image)
-
-Run image on port 5000, in prod can be 80/443:
-
+In **Nginx** level: configure it as a Reverse Proxy, so, in `example.conf`:
 ```
-docker run -it -v .:/app -p 5000:5000 --rm --name "test-python-app" test-python-app:1.0
+#  ROUTING TO DOCKER CONTAINER
+server {
+        listen 80;
+        listen 443 ssl;
+        server_name python.example.it;
+        
+        location / {
+                include proxy_params;
+                proxy_pass http://localhost:5000;
+        }
+}
 ```
 
-(adding `-d` to detach mode)
+Test conf && restart nginx process: 
+```
+$ sudo nginx -t 
+$ sudo systemctl restart nginx
+```
+
+Build and Run **docker image**:
+```
+$ docker build -t test-python-app:1.0 .
+$ docker images   # (--> to see generated image)
+$ docker run -d -p 5000:5000 --rm --name "test-python-app" test-python-app:1.0
+```
+(adding `-d` to detach mode, adding --volumes if in dev)
+
+<br><br><br>
+
+### Deploy flow
+```
+$ git pull
+
+# IF there is '--volumes' on the app code --> Not necessary re-build container
+# ELSE --> re-build container
+$ docker build -t name-to-assign:TAG .
+
+# restart container (inside: restart web server)
+$ docker run -d -p...:... --rm --name .... image-name:TAG
+```
+
+<br><br><br>
+
+## Deploy using Docker-Compose
+Configure all via `docker-compose up`
+
+***...todo...***
+
+
+<br><br><br><br>
+
+Some other commands:
 
 `pip3 freeze > requirements.txt`
+
+
