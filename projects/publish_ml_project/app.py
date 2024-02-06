@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    return ("<h3>Python Machine Learning experiments.</h3>"
+    return ("<h3>Python Machine Learning experiments</h3>"
             "<h4>Salary Prediction Model example (pre-trained model via scikit-learn and .csv datasheet)</h4>"
             "<b>Api</b>: POST request to '/api/calculate/salary' with 'experience' and 'level' json params (postman)<br>"
             "<b>Web</b>: <a href='/calculate/salary'>Predict salary</a>")
