@@ -102,7 +102,7 @@ $ docker build -t name-to-assign:TAG .
 # restart container (inside: restart web server)
 $ docker run -d -p...:... --rm --name .... image-name:TAG
 ```
-
+see `./deploy.sh` script (wip...)
 <br><br><br>
 
 ## Deploy using Docker-Compose
