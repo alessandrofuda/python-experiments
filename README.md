@@ -41,8 +41,11 @@ These 2 steps iterate to find model that have the best accuracy rate
 
 #### Chatbot build process
 1. Build initial knowledge base (pdf, csv, db, ecc...)
-1. Convert all in *embeddings* (from texts to "numbers" machine comprehensible)
+1. Convert all in *embeddings* (from texts to "numbered vectors" machine comprehensible, ex: [ -0.02026, -0.00698, -0.02565, -0.02634, ... ]).
+    These "numbered vectors" calculate *similarity* between words.
+1. store it in *vector database*
 1. todo..
+
 
 <br><br><br><br>
 
