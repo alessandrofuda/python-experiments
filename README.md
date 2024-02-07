@@ -1,8 +1,13 @@
 ### Python3 and ML experiments
 
+#### Glossary
 Likelihood = probability
 supervised learning = we have already data/values (input/output) to train the model with `train_test_split` method
 samples, sampling = campioni, campionamento
+LLM = is a Language Model like, for example: GPT-3.5 by OpenAI (..there are much others LLM (ex. PaLM 2 by Google/Bard), also open source (LLaMA, BLOOM, Bert,...))
+LangChain framework (for python) = stay between client and LLM/Vector DB. It's like a proxy before LLM. There are others too, like 4 ex: Llamaindex.
+
+
 
 ML Process:
 
