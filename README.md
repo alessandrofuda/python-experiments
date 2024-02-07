@@ -7,6 +7,7 @@
 - LLM = is a Language Model like, for example: GPT-3.5 by OpenAI (..there are much others LLM (ex. PaLM 2 by Google/Bard), also open source (LLaMA, BLOOM, Bert,...))
 - LangChain framework (for python) = stay between client and LLM/Vector DB. It's like a proxy before LLM. There are others too, like 4 ex: Llamaindex.
 - RAG = Retrieval Augmented Generation, approach that <ins>***"merge" "universal" LLM knowledge with our specific pre-trained knowledge base (our specific texts, .csv, .pdf, ecc...)***</ins>
+- Embeddings = results of conversion from texts to ***numbers*** comprehensible by the machine
 
 
 #### ML Process:
@@ -36,7 +37,12 @@ These 2 steps iterate to find model that have the best accuracy rate
 
 6. actionable insight
 
+<br><br><br>
 
+#### Chatbot build process
+1. Build initial knowledge base (pdf, csv, db, ecc...)
+1. Convert all in *embeddings* (from texts to "numbers" machine comprehensible)
+1. todo..
 
 <br><br><br><br>
 
