@@ -8,6 +8,8 @@
 - LangChain framework (for python) = stay between client and LLM/Vector DB. It's like a proxy before LLM. There are others too, like 4 ex: Llamaindex.
 - RAG = Retrieval Augmented Generation, approach that <ins>***"merge" "universal" LLM knowledge with our specific pre-trained knowledge base (our specific texts, .csv, .pdf, ecc...)***</ins>
 - Embeddings = results of conversion from texts to ***numbers*** comprehensible by the machine
+- FAISS = openAi not provide space to STORE all embeddings/vectors generated --> so we can use FAISS to store it (by facebook). Think FAISS as a DB.
+
 
 
 #### ML Process:
