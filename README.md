@@ -7,7 +7,7 @@
 - LLM = is a Language Model like, for example: GPT-3.5 by OpenAI (..there are much others LLM (ex. PaLM 2 by Google/Bard), also open source (LLaMA, BLOOM, Bert,...))
 - LangChain framework (for python) = stay between client and LLM/Vector DB. It's like a proxy before LLM. There are others too, like 4 ex: Llamaindex.
 - RAG = Retrieval Augmented Generation, approach that <ins>***"merge" "universal" LLM knowledge with our specific pre-trained knowledge base (our specific texts, .csv, .pdf, ecc...)***</ins>
-- Embeddings = results of conversion from texts to ***numbers*** comprehensible by the machine
+- Embeddings = results of conversion from texts to ***numbers*** comprehensible by the machine. They are vectors.
 - FAISS = openAi not provide space to STORE all embeddings/vectors generated --> so we can use FAISS to store it (by facebook). Think FAISS as a DB.
 
 
@@ -45,7 +45,7 @@ These 2 steps iterate to find model that have the best accuracy rate
 1. Build initial knowledge base (pdf, csv, db, ecc...)
 1. Convert all in *embeddings* (from texts to "numbered vectors" machine comprehensible, ex: [ -0.02026, -0.00698, -0.02565, -0.02634, ... ]).
     These "numbered vectors" calculate *similarity* between words.
-1. store it in *vector database*
+1. store it in *vector database* (FAISS, in our example), named vectorstore too.
 1. todo..
 
 
