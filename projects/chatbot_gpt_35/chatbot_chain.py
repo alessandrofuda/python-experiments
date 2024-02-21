@@ -25,10 +25,11 @@ vectorstore = FAISS.from_documents(documents, embeddings_model)  # store documen
 llm_model = ChatOpenAI(openai_api_key=openai_api_key)
 memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
 
-# -------------- MAIN -------------------------------------------------------------------------------
-chain = ConversationalRetrievalChain.from_llm(llm=llm_model,
-                                              retriever=vectorstore.as_retriever(),  # 'recuperatore'
-                                              memory=memory)
+
+# -------------- MAIN ------------------------------------------------------------------------------
+chain = ConversationalRetrievalChain.from_llm(llm=llm_model,  # OpenAI
+                                              retriever=vectorstore.as_retriever(),   # FAISS
+                                              memory=memory)   # langchain lib.
 # --------------------------------------------------------------------------------------------------
 
 
