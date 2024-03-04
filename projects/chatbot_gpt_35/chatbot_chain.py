@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
 from langchain_openai import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain
-from langchain_community.callbacks import get_openai_callback
 from langchain.memory import ConversationBufferMemory
 
 
@@ -37,20 +36,5 @@ def get_chatbot_chain():
 
     return chain
 
-
-
-
-
-
-# with get_openai_callback() as cb:
-#     # response = chain.invoke({"question": query, "chat_history": []})
-#     query = "Do you have a team plan?"
-#     response = chain.invoke({"question": query})
-#
-#   query2 = 'And what about free plan?'
-#     response = chain.invoke({"question": query2})
-#
-# print(response['chat_history'])
-# print(cb)
 
 
