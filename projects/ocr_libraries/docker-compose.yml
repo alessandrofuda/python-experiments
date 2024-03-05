@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: .
+    # command: gunicorn -b 0.0.0.0:5000 app:app
+    command: python3 -m http.server
+#    depends_on:
+#      - postgres
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+#    environment:
+#      DATABASE_URL: postgres://todoapp@postgres/todos
+#  postgres:
+#    image: postgres:9.6.2-alpine
+#    environment:
+#      POSTGRES_USER: todoapp
+#      POSTGRES_DB: todos
